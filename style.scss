@@ -1,0 +1,186 @@
+
+@use "./fonts";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  height: 100vh; /* Full height of the viewport */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  background-color: #f0f0f0; /* Light background color */
+  flex-direction: column; /* Stack header and main vertically */
+}
+
+/* Header styling */
+header {
+  text-align: center;
+  margin-bottom: 20px; /* Space below header */
+  color:#470d57
+}
+
+/* Main content styling */
+main {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically in the main section */
+  justify-content: center; /* Align items in the center vertically */
+  align-items: center; /* Align items horizontally */
+  text-align: center;
+}
+
+/* Styling for the word board (blank buttons) */
+.word-board {
+  display: flex;
+  justify-content: center; /* Center the blank buttons horizontally */
+  margin-bottom: 20px; /* Space between word board and alphabet board */
+}
+
+/* Styling for the game board section (alphabet buttons) */
+.board {
+  display: grid;
+  grid-template-columns: repeat(10, 60px); /* 10 columns to match QWERTY row layout */
+  grid-gap: 10px; /* Space between buttons */
+  margin-bottom: 20px; /* Space between board and message */
+  padding: 20px;
+  background-color: #ddd; /* Light gray background for the board */
+  border-radius: 10px; /* Rounded corners */
+}
+
+.inputside{
+    display: flex;
+    flex-direction: row;
+    background-color: light grey;
+    justify-items: center;
+    flex-wrap: wrap;
+    border-radius: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.outputcontainer{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 350px;
+  width: 800px;
+  // background-color: white;
+  border-radius: 30px;
+}
+
+.outputside{
+height: 300px;
+width: 300px;
+background-color: white;
+border-radius: 30px;
+image-rendering: optimizeQuality;
+image-orientation: from-image;
+padding-bottom: 0px;
+margin-bottom: 50px;
+margin-right: 20px;
+padding-top: 60px;
+}
+
+
+.wordlist{
+  height: 300px;
+  width: 300px;
+  background-color: white;
+  border-radius: 30px;
+  padding-bottom: 0px;
+  margin-bottom: 50px;
+  padding-top: 60px;
+  margin-left: 20px;
+  text-align: center;
+  font-family: gowun-dodum-regular;
+  font-size: 20px;
+  vertical-align: top;
+  text-decoration-line: underline;
+}
+
+
+
+.play {
+  width: 150px;
+  height: 50px;
+  font-family: gowun-dodum-regular;
+  font-size: 20px;
+  // font-style: to-upper-case($string: "Play Again");
+  background-color: #f39c12; 
+  color: white;
+  border: none;
+  border-radius: 10px; 
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+.key {
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  background-color: #f39c12; /* Orange color */
+  color: white;
+  border: none;
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+.key:hover {
+  background-color: #e67e22; /* Darker orange on hover */
+}
+
+.key:active {
+  background-color: #d35400; /* Even darker orange when key is pressed */
+}
+
+key:disabled{
+  pointer-events: none; 
+  opacity: 0.1;         
+  cursor: not-allowed; 
+}
+
+.blank {
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+  background-color: grey;
+  color: black;
+  border: 2px solid black; 
+  border-radius: 5px;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  cursor: not-allowed; //Can't be clicked
+}
+
+#game-message {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: orange;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: white;
+  color: orange;
+}
+
+button:active {
+  background-color: white;
+  color: orange;
+}
