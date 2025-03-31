@@ -2,229 +2,455 @@
 
 // Alphabet input for keying in by user
 const alphabet = [
-    'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P',
-    'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L',
-    'Z', 'X', 'C', 'V', 'B', 'N', 'M'
-  ];
+  "Q",
+  "W",
+  "E",
+  "R",
+  "T",
+  "Y",
+  "U",
+  "I",
+  "O",
+  "P",
+  "A",
+  "S",
+  "D",
+  "F",
+  "G",
+  "H",
+  "J",
+  "K",
+  "L",
+  "Z",
+  "X",
+  "C",
+  "V",
+  "B",
+  "N",
+  "M",
+];
 
+const words = [
+  "apple",
+  "banana",
+  "orange",
+  "grape",
+  "kiwi",
+  "pear",
+  "peach",
+  "plum",
+  "melon",
+  "lemon",
+  "pineapple",
+  "mango",
+  "papaya",
+  "coconut",
+  "strawberry",
+  "blueberry",
+  "raspberry",
+  "blackberry",
+  "cherry",
+  "apricot",
+  "tomato",
+  "carrot",
+  "potato",
+  "onion",
+  "garlic",
+  "pepper",
+  "lettuce",
+  "broccoli",
+  "spinach",
+  "zucchini",
+  "cucumber",
+  "celery",
+  "cauliflower",
+  "asparagus",
+  "mushroom",
+  "pumpkin",
+  "radish",
+  "beetroot",
+  "turnip",
+  "parsnip",
+  "elephant",
+  "giraffe",
+  "tiger",
+  "lion",
+  "cheetah",
+  "leopard",
+  "zebra",
+  "rhino",
+  "hippo",
+  "buffalo",
+  "kangaroo",
+  "koala",
+  "panda",
+  "sloth",
+  "chimpanzee",
+  "gorilla",
+  "orangutan",
+  "lemur",
+  "meerkat",
+  "otter",
+  "shark",
+  "whale",
+  "dolphin",
+  "seal",
+  "octopus",
+  "jellyfish",
+  "lobster",
+  "crab",
+  "shrimp",
+  "starfish",
+  "eagle",
+  "sparrow",
+  "parrot",
+  "penguin",
+  "ostrich",
+  "flamingo",
+  "peacock",
+  "hummingbird",
+  "owl",
+  "falcon",
+  "house",
+  "apartment",
+  "mansion",
+  "cottage",
+  "bungalow",
+  "castle",
+  "villa",
+  "shack",
+  "chalet",
+  "palace",
+  "bed",
+  "chair",
+  "table",
+  "desk",
+  "sofa",
+  "couch",
+  "cabinet",
+  "wardrobe",
+  "bookshelf",
+  "dresser",
+  "car",
+  "bicycle",
+  "motorcycle",
+  "scooter",
+  "truck",
+  "bus",
+  "train",
+  "airplane",
+  "helicopter",
+  "boat",
+  "submarine",
+  "rocket",
+  "spaceship",
+  "hovercraft",
+  "tram",
+  "trolley",
+  "taxi",
+  "ferry",
+  "yacht",
+  "canoe",
+  "violin",
+  "guitar",
+  "piano",
+  "trumpet",
+  "flute",
+  "drums",
+  "clarinet",
+  "saxophone",
+  "cello",
+  "harp",
+  "concert",
+  "symphony",
+  "melody",
+  "harmony",
+  "rhythm",
+  "tempo",
+  "note",
+  "scale",
+  "chord",
+  "tune",
+  "dog",
+  "cat",
+  "rabbit",
+  "hamster",
+  "goldfish",
+  "parakeet",
+  "ferret",
+  "guinea",
+  "chinchilla",
+  "gerbil",
+  "winter",
+  "spring",
+  "summer",
+  "autumn",
+  "snow",
+  "rain",
+  "hail",
+  "sleet",
+  "fog",
+  "storm",
+  "mountain",
+  "river",
+  "lake",
+  "ocean",
+  "forest",
+  "desert",
+  "valley",
+  "canyon",
+  "island",
+  "waterfall",
+  "kitchen",
+  "bathroom",
+  "bedroom",
+  "livingroom",
+  "garage",
+  "basement",
+  "attic",
+  "hallway",
+  "balcony",
+  "patio",
+  "science",
+  "history",
+  "math",
+  "geography",
+  "chemistry",
+  "biology",
+  "physics",
+  "astronomy",
+  "literature",
+  "philosophy",
+  "football",
+  "basketball",
+  "tennis",
+  "golf",
+  "soccer",
+  "baseball",
+  "hockey",
+  "cricket",
+  "rugby",
+  "volleyball",
+];
 
- const  words = ["apple", "banana", "orange", "grape", "kiwi", "pear", "peach", "plum", "melon", "lemon", "pineapple", "mango", "papaya", 
-  "coconut", "strawberry", "blueberry", "raspberry", "blackberry", "cherry", "apricot", "tomato", "carrot", "potato", "onion", "garlic", 
-  "pepper", "lettuce", "broccoli", "spinach", "zucchini", "cucumber", "celery", "cauliflower", "asparagus", "mushroom", "pumpkin", "radish", 
-  "beetroot", "turnip", "parsnip", "elephant", "giraffe", "tiger", "lion", "cheetah", "leopard", "zebra", "rhino", "hippo", "buffalo", "kangaroo", 
-  "koala", "panda", "sloth", "chimpanzee", "gorilla", "orangutan", "lemur", "meerkat", "otter", "shark", "whale", "dolphin", "seal", "octopus", 
-  "jellyfish", "lobster", "crab", "shrimp", "starfish", "eagle", "sparrow", "parrot", "penguin", "ostrich", "flamingo", "peacock", "hummingbird", 
-  "owl", "falcon", "house", "apartment", "mansion", "cottage", "bungalow", "castle", "villa", "shack", "chalet", "palace", "bed", "chair", "table", 
-  "desk", "sofa", "couch", "cabinet", "wardrobe", "bookshelf", "dresser", "car", "bicycle", "motorcycle", "scooter", "truck", "bus", "train", "airplane", 
-  "helicopter", "boat", "submarine", "rocket", "spaceship",  "hovercraft", "tram", "trolley", "taxi", "ferry", "yacht", "canoe", "violin", "guitar", "piano", 
-  "trumpet", "flute", "drums", "clarinet",   "saxophone", "cello", "harp", "concert", "symphony", "melody", "harmony", "rhythm", "tempo", "note", "scale", "chord", 
-  "tune", "dog", "cat", "rabbit", "hamster", "goldfish", "parakeet", "ferret", "guinea", "chinchilla", "gerbil", "winter", "spring", "summer", "autumn", "snow", "rain", 
-  "hail", "sleet", "fog", "storm", "mountain", "river", "lake", "ocean", "forest", "desert", "valley", "canyon", "island", "waterfall", "kitchen", "bathroom", "bedroom", 
-  "livingroom", "garage", "basement", "attic", "hallway", "balcony", "patio", "science", "history", "math", "geography", "chemistry", "biology", "physics", "astronomy",
-  "literature", "philosophy", "football", "basketball", "tennis", "golf", "soccer", "baseball", "hockey", "cricket", "rugby", "volleyball"];
- 
+// let hangman = [];
 
-  let hangman = [];
+let hangman = getRandomWord();
+// let wordlist = []; //for display
 
-  console.log("first:" + hangman);
+let listElem = document.querySelector(".wordlist p");
+// listElem.textContent = hangman;
 
-  const maxClicks = hangman.length-1;
-  let hangman_loses = 1;
-  let winFlag = false; 
+// console.log("first:" + hangman.join());
 
+let maxClicks = hangman.length - 1;
+let hangman_loses = 1;
+let winFlag = false;
+let total_turns = 0;
 
-
-  function getRandomWord() {
-    // resetValues();
-    const randomInd = Math.floor(Math.random() * words.length);
-    const randomWord = words[randomInd];
-    return(randomWord.toUpperCase().split(''));
-  }
-  
-  // Example usage:
-
-  // console.log(hangman); 
-  const board = document.querySelector('.board');
-  
-  // Get the word-board section where blank buttons will be rendered
-  const wordBoard = document.querySelector('.word-board');
-
-  const playButton = document.getElementById('play');
-  playButton.addEventListener('click', handlePlayAgainClick);
-
-
-
-
-  // Function to render the alphabets on buttons
-  function renderAlphabet() {
-      alphabet.forEach(letter => {
-      const button = document.createElement('alphabutton');
-      button.textContent = letter;
-      button.classList.add('key');  
-      button.dataset.letter = button.textContent;
-      board.appendChild(button);
-      console.log("reached here before event listener");
-      resetValues();
-      button.addEventListener('click', handleclick);     
-     });
+function getRandomWord() {
+  // resetValues();
+  const randomInd = Math.floor(Math.random() * words.length);
+  const randomWord = words[randomInd];
+  return randomWord.toUpperCase().split("");
 }
 
+setHintText(hangman);
+// Example usage:
 
-  function renderBlankButtons() {
-    hangman = getRandomWord();
-    const maxClicks = hangman.length-1;
-    let hangman_loses = 1;
-    let winFlag = false; 
-    console.log("check render blank" + hangman);
-    hangman.forEach(inpletter => {
-      const button = document.createElement('inputbutton');
-      //button.name = "challengebuttons";
-      button.textContent = " "; 
-      button.classList.add('blank');  // Add a class for styling
-      wordBoard.appendChild(button);
-    });
-  }
+// console.log(hangman);
+const board = document.querySelector(".board");
 
+// Get the word-board section where blank buttons will be rendered
+const wordBoard = document.querySelector(".word-board");
 
+const playButton = document.getElementById("play");
+playButton.addEventListener("click", handlePlayAgainClick);
 
-
-
-  //Set onclick event for alphabet buttons
-  // function clickedbuttons() {
-  //   const allbuttons = document.querySelectorAll('alphabutton');  // Get all buttons with class 'letterButton'
-
-  //   allbuttons.forEach(item => {
-  //   item.addEventListener('click', handleclick);  // Add click event listener to each button
-  // });
-
-
-  
- 
-  function handleclick(event) { //Dynamic content of input button on clicking alphabets
-
+// Function to render the alphabets on buttons
+function renderAlphabet() {
+  alphabet.forEach((letter) => {
+    const button = document.createElement("alphabutton");
+    button.textContent = letter;
+    button.classList.add("key");
+    button.dataset.letter = button.textContent;
+    board.appendChild(button);
+    // console.log("reached here before event listener");
     // resetValues();
-    if((hangman_loses === 11) || (winFlag === true)) return;
-    else{
-      // if(button.textContent === undefined) break;
-      const button = event.target;
-      const clickedLetter = button.textContent;
-      // console.log(button.backgroundColor);
-      // console.log(clickedLetter);
+    button.addEventListener("click", handleclick);
+  });
+}
 
-      //find which positions of the challenge word contain this input letter
-      
+function renderBlankButtons() {
+  // hangman = getRandomWord();
 
-      button.style.backgroundColor = 'gray';
-      button.textContent = '';
+  //clear first
+  //remove event listeners
+  const maxClicks = hangman.length - 1;
+  let hangman_loses = 1;
+  let winFlag = false;
+  // console.log("check render blank" + hangman);
+  hangman.forEach((inpletter) => {
+    const button = document.createElement("inputbutton");
+    //button.name = "challengebuttons";
+    button.textContent = " ";
+    button.classList.add("blank"); // Add a class for styling
+    wordBoard.appendChild(button);
+  });
+}
 
-      // event.target.disabled = true;  // Disable the button after clicking   
-      // event.target.textContent = '';
+//Set onclick event for alphabet buttons
+// function clickedbuttons() {
+//   const allbuttons = document.querySelectorAll('alphabutton');  // Get all buttons with class 'letterButton'
 
-      // event.target.setAttribute('disabled', true);
-      // event.target.event = ;
-      // if(event.target.disabled === true;
- 
-      // console.log(clickedLetter);
-      // clickCnt++;
-      // console.log("Calling populate input");
+//   allbuttons.forEach(item => {
+//   item.addEventListener('click', handleclick);  // Add click event listener to each button
+// });
 
-      const inpbuttons = document.querySelectorAll('inputbutton');
-      if(clickedLetter === '') return;
-      let inpPositions = [];
-      // get positions where letter is applicable
-      inpPositions = [...hangman].map((item, index) => (item === clickedLetter)? index:-1) 
-                           .filter(index => index !== -1);
+function handleclick(event) {
+  //Dynamic content of input button on clicking alphabets
 
-      //Not found condition, time to change image 
-      if(inpPositions.length === 0) changeImage();
+  // resetValues();
+  if (hangman_loses === 11 || winFlag === true) return;
+  else {
+    // if(button.textContent === undefined) break;
+    const button = event.target;
+    const clickedLetter = button.textContent;
+    // console.log(button.backgroundColor);
+    // console.log(clickedLetter);
 
-      //Make an entry in position applicable
-      inpPositions.forEach((index) => {
-        inpbuttons[index].textContent = clickedLetter;
-        // console.log(index);
-      });
-      
-      winFlag = winorlose();
-      if(winFlag ===  true){
-        const msgElem = document.getElementById("game-message");
-        msgElem.textContent = "You won; Try again?"
-      }
+    //find which positions of the challenge word contain this input letter
 
-  
+    button.style.backgroundColor = "gray";
+    button.textContent = "";
+
+    // event.target.disabled = true;  // Disable the button after clicking
+    // event.target.textContent = '';
+
+    // event.target.setAttribute('disabled', true);
+    // event.target.event = ;
+    // if(event.target.disabled === true;
+
+    // console.log(clickedLetter);
+    // clickCnt++;
+    // console.log("Calling populate input");
+
+    const inpbuttons = document.querySelectorAll("inputbutton");
+    if (clickedLetter === "") return;
+    let inpPositions = [];
+    // get positions where letter is applicable
+    inpPositions = [...hangman]
+      .map((item, index) => (item === clickedLetter ? index : -1))
+      .filter((index) => index !== -1);
+
+    //Not found condition, time to change image
+    if (inpPositions.length === 0) changeImage();
+
+    //Make an entry in position applicable
+    inpPositions.forEach((index) => {
+      inpbuttons[index].textContent = clickedLetter;
+      // console.log(index);
+    });
+
+    winFlag = winorlose();
+    if (winFlag === true) {
+      let msgElem = document.getElementById("game-message");
+      msgElem.textContent = "You won; Try again?";
     }
   }
+}
 
-    function winorlose(){
-      const inpbuttons = document.querySelectorAll('inputbutton');
-      if(inpbuttons.length === 0) return(false);
-      if(inpbuttons.length !== hangman.length) return(false);
-      for (let i = 0; i < inpbuttons.length; i++) {
-        if (inpbuttons[i].textContent !== hangman[i]) {
-          // console.log(inpbuttons[i]);
-            return false;
-        }
-      }
-      return true;
+function winorlose() {
+  const inpbuttons = document.querySelectorAll("inputbutton");
+  if (inpbuttons.length === 0) return false;
+  if (inpbuttons.length !== hangman.length) return false;
+  for (let i = 0; i < inpbuttons.length; i++) {
+    if (inpbuttons[i].textContent !== hangman[i]) {
+      // console.log(inpbuttons[i]);
+      return false;
     }
-
-
-
-    function changeImage(){
-      const imgElem = document.querySelector("img");
-      let filename = "./img/h-" + hangman_loses + ".jpg";
-      imgElem.src = filename;
-      hangman_loses += 1;  
-      if(hangman_loses === 11){
-        const msgElem = document.getElementById("game-message");
-        console.log("for word list" + hangman);
-        msgElem.textContent = "Game over; Try again?"
-        // resetValues();
-        return;
-      }    
-      return;
-    }
-
-
-
-
-
-  function handlePlayAgainClick(){
-    // location.reload();
-    //reload image
-    wordBoard.innerHTML = '';
-    board.innerHTML = '';
-    // const hangman = getRandomWord(); //Get a new word
-    // console.log("Here" + hangman);
-    const imgElem = document.querySelector("img");
-    imgElem.src = "./img/h-0.jpg";
-    // imgElem.src = filename;
-    const msgElem = document.getElementById("game-message");
-    msgElem.textContent = "Won/Lost?"
-    const maxClicks = hangman.length-1;
-    let hangman_loses = 1;
-    let winFlag = false; 
-    // renderAlphabet()
-    renderAlphabet();
-    renderBlankButtons();
-    // clickedbuttons();
   }
+  return true;
+}
 
-
-  //Call & reset everytime a different word is chosen
-  function resetValues(){
-    const maxClicks = hangman.length-1;
-    let hangman_loses = 1;
-    let winFlag = false; 
+function changeImage() {
+  const imgElem = document.querySelector("img");
+  let filename = "./img/h-" + hangman_loses + ".jpg";
+  imgElem.src = filename;
+  hangman_loses += 1;
+  if (hangman_loses === 11) {
+    let msgElem = document.getElementById("game-message");
+    console.log("for word list" + hangman);
+    msgElem.textContent = "Game over; Try again?";
+    // resetValues();
+    return;
   }
+  return;
+}
 
+function handlePlayAgainClick() {
+  console.log("resetting now");
+  wordBoard.innerHTML = "";
+  board.innerHTML = "";
 
-  // Call functions to render the keyboard and blank buttons
-  renderBlankButtons();
+  const alphabuttons = document.createElement("alphabutton");
+  alphabuttons.removeEventListener("click", handleclick);
+
+  maxClicks = hangman.length - 1;
+  hangman_loses = 1;
+  winFlag = false;
+
+  const imgElem = document.querySelector("img");
+  let filename = "./img/h-0.jpg";
+  imgElem.src = filename;
+
+  // renderBlankButtons();
   renderAlphabet();
-  // clickedbuttons();
-  // resetAlphabuttons();
-  // clickplay();
-  // populateInput();
-  //wonOrlost();
-  // changeImage();
-  //resetimage();
+
+  //get current challenge word
+
+  total_turns += 1;
+  let temp = hangman.join("").toLowerCase();
+
+  if (total_turns === 20) {
+    listElem.textContent = "";
+    total_turns = 0;
+  }
+
+  listElem.textContent = listElem.textContent + " " + temp;
+  hangman = getRandomWord();
+  setHintText(hangman);
+
+  renderBlankButtons();
+}
+
+function setHintText(txt) {
+  let vowelcount = 0;
+  for (let i = 0; i < hangman.length; i++) {
+    if (txt[i] === "A") vowelcount += 1;
+    if (txt[i] === "E") vowelcount += 1;
+    if (txt[i] === "I") vowelcount += 1;
+    if (txt[i] === "O") vowelcount += 1;
+    if (txt[i] === "U") vowelcount += 1;
+  }
+
+  let msgElem = document.getElementById("game-message");
+
+  msgElem.textContent =
+    "Hint vowels: " +
+    vowelcount +
+    "," +
+    " Consonants: " +
+    (Number(txt.length) - vowelcount);
+}
+
+// Call functions to render the keyboard and blank buttons
+renderBlankButtons();
+renderAlphabet();
+// clickedbuttons();
+// resetAlphabuttons();
+// clickplay();
+// populateInput();
+//wonOrlost();
+// changeImage();
+//resetimage();

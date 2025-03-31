@@ -121,7 +121,11 @@ main {
   font-family: gowun-dodum-regular;
   font-size: 20px;
   vertical-align: top;
-  text-decoration-line: underline;
+  text-decoration-line: none;
+}
+.wordlist p {
+  text-decoration: none;
+  font-size: 16px;
 }
 
 .play {
