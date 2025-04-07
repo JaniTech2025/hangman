@@ -1,9 +1,3 @@
-export const renderBoard = (boardArr) => {
-  boardArr.forEach((item, index) => {
-    document.querySelector('#cell' + (index + 1)).textContent = item;
-  });
-};
-
 // export const updatePlayerHeading = (player) => {
 //   const subHeading = document.querySelector('#player-turn');
 //   subHeading.textContent = `${player}'s turn`;

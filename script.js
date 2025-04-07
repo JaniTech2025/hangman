@@ -256,9 +256,7 @@ function getRandomWord() {
 }
 
 setHintText(hangman);
-// Example usage:
 
-// console.log(hangman);
 const board = document.querySelector(".board");
 
 // Get the word-board section where blank buttons will be rendered
@@ -299,14 +297,6 @@ function renderBlankButtons() {
   });
 }
 
-//Set onclick event for alphabet buttons
-// function clickedbuttons() {
-//   const allbuttons = document.querySelectorAll('alphabutton');  // Get all buttons with class 'letterButton'
-
-//   allbuttons.forEach(item => {
-//   item.addEventListener('click', handleclick);  // Add click event listener to each button
-// });
-
 function handleclick(event) {
   //Dynamic content of input button on clicking alphabets
 
@@ -315,25 +305,14 @@ function handleclick(event) {
   else {
     // if(button.textContent === undefined) break;
     const button = event.target;
-    const clickedLetter = button.textContent;
-    // console.log(button.backgroundColor);
-    // console.log(clickedLetter);
+    if (button.style.backgroundColor === "gray") return;
 
-    //find which positions of the challenge word contain this input letter
+    const clickedLetter = button.textContent;
 
     button.style.backgroundColor = "gray";
-    button.textContent = "";
-
-    // event.target.disabled = true;  // Disable the button after clicking
-    // event.target.textContent = '';
-
-    // event.target.setAttribute('disabled', true);
-    // event.target.event = ;
-    // if(event.target.disabled === true;
-
-    // console.log(clickedLetter);
-    // clickCnt++;
-    // console.log("Calling populate input");
+    // button.textContent = "";
+    button.style.color = "white";
+    // button.setAttribute("disabled", true);
 
     const inpbuttons = document.querySelectorAll("inputbutton");
     if (clickedLetter === "") return;
@@ -343,13 +322,10 @@ function handleclick(event) {
       .map((item, index) => (item === clickedLetter ? index : -1))
       .filter((index) => index !== -1);
 
-    //Not found condition, time to change image
     if (inpPositions.length === 0) changeImage();
 
-    //Make an entry in position applicable
     inpPositions.forEach((index) => {
       inpbuttons[index].textContent = clickedLetter;
-      // console.log(index);
     });
 
     winFlag = winorlose();
@@ -366,7 +342,6 @@ function winorlose() {
   if (inpbuttons.length !== hangman.length) return false;
   for (let i = 0; i < inpbuttons.length; i++) {
     if (inpbuttons[i].textContent !== hangman[i]) {
-      // console.log(inpbuttons[i]);
       return false;
     }
   }
@@ -382,7 +357,6 @@ function changeImage() {
     let msgElem = document.getElementById("game-message");
     console.log("for word list" + hangman);
     msgElem.textContent = "Game over; Try again?";
-    // resetValues();
     return;
   }
   return;
@@ -404,10 +378,7 @@ function handlePlayAgainClick() {
   let filename = "./img/h-0.jpg";
   imgElem.src = filename;
 
-  // renderBlankButtons();
   renderAlphabet();
-
-  //get current challenge word
 
   total_turns += 1;
   let temp = hangman.join("").toLowerCase();
@@ -447,10 +418,3 @@ function setHintText(txt) {
 // Call functions to render the keyboard and blank buttons
 renderBlankButtons();
 renderAlphabet();
-// clickedbuttons();
-// resetAlphabuttons();
-// clickplay();
-// populateInput();
-//wonOrlost();
-// changeImage();
-//resetimage();

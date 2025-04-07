@@ -1,44 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>QWERTY Keyboard with Orange Buttons</title>
+  <title>Hangman</title>
   <link rel="stylesheet" href="./style.css">
   <!-- <script src = "./readjson.js" defer></script> -->
 </head>
+
 <body>
 
   <header>
     <h1>Hangman: Guess the word</h1>
   </header>
 
-  <main class = container>
+  <main class=container>
     <section class="outputcontainer">
-    <div class = "outputside">
-      <img id='imgid' src="./img/h-0.jpg">
-    </div>
+      <div class="outputside">
+        <img id='imgid' src="./img/h-0.jpg">
+      </div>
       <div class="wordlist">Words played
-      <p> 
-      </p></div>
-  </section>
-  <section class = "inputside">
-    <!-- Section for the blank buttons -->
-    <div class="word-board">
-      <!-- Blank buttons will be rendered here -->
-    </div>
-  </section>
+        <p>
+        </p>
+      </div>
+    </section>
+    <section class="inputside">
+      <!-- Section for the blank buttons -->
+      <div class="word-board">
+        <!-- Blank buttons will be rendered here -->
+      </div>
+    </section>
 
     <!-- Section for the alphabet keys -->
     <section class="board">
       <!-- Alphabet keys will be rendered here -->
     </section>
 
-    <h3 id="game-message">Won/Lost?</h3><p></p>
+    <h3 id="game-message">Won/Lost?</h3>
+    <p></p>
     <button id="play">Play Again</button>
     </div>
   </main>
 
   <script type="module" src="script.js"></script>
 </body>
+
 </html>
