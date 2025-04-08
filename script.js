@@ -395,26 +395,45 @@ function handlePlayAgainClick() {
   renderBlankButtons();
 }
 
-function setHintText(txt) {
-  let vowelcount = 0;
-  for (let i = 0; i < hangman.length; i++) {
-    if (txt[i] === "A") vowelcount += 1;
-    if (txt[i] === "E") vowelcount += 1;
-    if (txt[i] === "I") vowelcount += 1;
-    if (txt[i] === "O") vowelcount += 1;
-    if (txt[i] === "U") vowelcount += 1;
-  }
+// function setHintText(txt) {
+//   let vowelcount = 0;
+//   for (let i = 0; i < txt.length; i++) {
+//     if (txt[i] === "A") vowelcount += 1;
+//     if (txt[i] === "E") vowelcount += 1;
+//     if (txt[i] === "I") vowelcount += 1;
+//     if (txt[i] === "O") vowelcount += 1;
+//     if (txt[i] === "U") vowelcount += 1;
+//   }
 
-  let msgElem = document.getElementById("game-message");
+//   let msgElem = document.getElementById("game-message");
 
-  msgElem.textContent =
-    "Hint vowels: " +
-    vowelcount +
-    "," +
-    " Consonants: " +
-    (Number(txt.length) - vowelcount);
-}
+//   msgElem.textContent =
+//     "Hint vowels: " +
+//     vowelcount +
+//     "," +
+//     " Consonants: " +
+//     (Number(txt.length) - vowelcount);
+// }
 
 // Call functions to render the keyboard and blank buttons
+
+setHintText(hangman);
+
+function setHintText(txt) {
+  const vowelArr = ["A", "E", "I", "O", "U"];
+  let vowelCnt = 0;
+
+  for (v of vowelArr) {
+    for (let i = 0; i < txt.length; i++) {
+      if (v === txt[i]) vowelCnt += 1;
+    }
+  }
+  dispHint(vowelCnt, Number(txt.length) - vowelCnt);
+}
+
+function dispHint(vowels, consonants) {
+  msgElem.textContent =
+    "Hint vowels: " + vowelcount + "," + " Consonants: " + consonants;
+}
 renderBlankButtons();
 renderAlphabet();
