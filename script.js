@@ -239,6 +239,8 @@ let hangman = getRandomWord();
 // let wordlist = []; //for display
 
 let listElem = document.querySelector(".wordlist p");
+const msgElem = document.getElementById("game-message");
+
 // listElem.textContent = hangman;
 
 // console.log("first:" + hangman.join());
@@ -330,7 +332,6 @@ function handleclick(event) {
 
     winFlag = winorlose();
     if (winFlag === true) {
-      let msgElem = document.getElementById("game-message");
       msgElem.textContent = "You won; Try again?";
     }
   }
@@ -354,7 +355,7 @@ function changeImage() {
   imgElem.src = filename;
   hangman_loses += 1;
   if (hangman_loses === 11) {
-    let msgElem = document.getElementById("game-message");
+    msgElem = document.getElementById("game-message");
     console.log("for word list" + hangman);
     msgElem.textContent = "Game over; Try again?";
     return;
@@ -374,7 +375,7 @@ function handlePlayAgainClick() {
   hangman_loses = 1;
   winFlag = false;
 
-  const imgElem = document.querySelector("img");
+  let imgElem = document.querySelector("img");
   let filename = "./img/h-0.jpg";
   imgElem.src = filename;
 
@@ -423,7 +424,7 @@ function setHintText(txt) {
   const vowelArr = ["A", "E", "I", "O", "U"];
   let vowelCnt = 0;
 
-  for (v of vowelArr) {
+  for (let v of vowelArr) {
     for (let i = 0; i < txt.length; i++) {
       if (v === txt[i]) vowelCnt += 1;
     }
@@ -433,7 +434,7 @@ function setHintText(txt) {
 
 function dispHint(vowels, consonants) {
   msgElem.textContent =
-    "Hint vowels: " + vowelcount + "," + " Consonants: " + consonants;
+    "Hint vowels: " + vowels + "," + " Consonants: " + consonants;
 }
 renderBlankButtons();
 renderAlphabet();
